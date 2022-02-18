@@ -29,7 +29,9 @@ $(function () {
         }).then((res) => {
             console.log(res);
             if (res.data.status != 0) return layer.msg('账号或密码错误，登录失败');
+            //保存请求头身份认证字段到本地存储
             localStorage.setItem('token', res.data.token);
+            sessionStorage
             layer.msg('登录成功');
             setTimeout(() => {
                 location.href = 'index.html';
